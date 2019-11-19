@@ -1,0 +1,16 @@
+{# {% extends 'index.html' %} #}
+
+<h1>Продукты</h1>
+<a href="/products/create">Add</a>
+<ul>
+    {% for product in products %}
+        <li>
+            {{ product.name }}
+            <a href="/products/view/{{ product.id}}">Смотреть</a>
+            <a href="/products/edit/{{ product.id}}">Изменить</a>
+            <a href="/products/delete/{{ product.id}}">Удалить</a>
+        </li>
+    {% endfor %}
+</ul>
+
+

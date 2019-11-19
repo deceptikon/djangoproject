@@ -1,0 +1,12 @@
+<a href="/products/list">К списку</a>
+
+<form action="" method="GET">
+    <input name="product_name" value="{{ product.name }}" placeholder="Название" /> <br/>
+    <label for="product_price">Цена</label>
+    <input name="product_price" id="product_price" value="{{ product.price }}"/> <br/>
+    <label>
+        Описание:
+        <input name="product_description" value="{{ product.description }}"/> <br/>
+    </label>
+    <button type="submit">Отправить</button>
+</form>
