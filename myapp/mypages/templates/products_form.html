@@ -1,6 +1,7 @@
 <a href="/products/list">К списку</a>
 
-<form action="" method="GET">
+<form action="" method="POST">
+     {% csrf_token %}
     <input name="product_name" value="{{ product.name }}" placeholder="Название" /> <br/>
     <label for="product_price">Цена</label>
     <input name="product_price" id="product_price" value="{{ product.price }}"/> <br/>

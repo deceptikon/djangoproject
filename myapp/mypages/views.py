@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import Product
+from .forms import ProductForm
 
 # Create your views here.
 def startpage(request):
@@ -24,7 +25,6 @@ def startpage(request):
         'main.html',
         context
     )
-
 def starttest(request):
     return HttpResponse('Test response')
 
@@ -34,7 +34,7 @@ def product_handler(request, action = None, product_id = None):
         context['products'] = Product.objects.all()
         template_name = 'products_list.html'
     elif action == 'create':
-        new_data = request.GET
+        new_data = request.POST
         if new_data:
             new_product = Product(
                 name = new_data['product_name'],
@@ -71,3 +71,7 @@ def product_handler(request, action = None, product_id = None):
     return render(request, template_name, context)
 
     return HttpResponse('Test response' + action + ' ' + str(product_id))
+
+def add_product(request):
+    form = ProductForm()
+    return render(request, 'product_form2.html', {'form': form})

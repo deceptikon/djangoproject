@@ -13,6 +13,7 @@ from . import views as v
 urlpatterns = [
     path('', v.startpage, name='index'),
     path('products', v.product_handler, name='products'),
+    path('products/new', v.add_product, name='add_prod'),
     path('products/<str:action>', v.product_handler, name='products'),
     path('products/<str:action>/<int:product_id>', v.product_handler, name='products'),
     path('test', v.starttest, name='test')
